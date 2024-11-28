@@ -1,3 +1,9 @@
+body {
+    width: 3000px;
+    height: 3000px;
+    position: relative;
+}
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -28,4 +34,13 @@
     border-radius: 50%;
     position: absolute; 
     transform: translate(-50%, -50%);  /* 렐러티브 안 앱솔루트 요소는 랠러티브 요소 왼쪽 상단에 위치하기 때문에 정위로 돌려 놓기 위해서 해당 코드 입력 */
+}
+
+.scroll-marker {
+    width: 16px;
+    border-radius: 50%;
+    height: 16px;
+    background-color: rgba(239, 68, 68, 0.5);
+    position: absolute; 
+    /* transform: translate(-50%, -50%);  렐러티브 안 앱솔루트 요소는 랠러티브 요소 왼쪽 상단에 위치하기 때문에 정위로 돌려 놓기 위해서 해당 코드 입력 */
 }
