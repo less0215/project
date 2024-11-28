@@ -11,8 +11,11 @@
         <div class="coordinates-display" id="coordsDisplay">
             현재 좌표: X: 0, Y: 0
         </div>
+        <div class="navigation">
+            <a href="pageB.html" id="moveToB">페이지 B로 이동</a>
+            <button class="reset-button" id="resetButton">초기화</button>
+        </div>
         <div class="click-area" id="clickArea"></div>
-        <button class="reset-button" id="resetButton">초기화</button>
     </div>
 
     <script>
@@ -47,7 +50,40 @@
 
         // 스크롤 하면, 좌표 표시되게끔하기.
 
-        
-    </script>
+        window.addEventListener('scroll', function(){
+            
+            // 좌표 생성 후 출력
+            let 스크롤x = window.scrollX;
+            let 스크롤y = window.scrollY;
+
+
+            // 좌표 업데이트
+            document.getElementById('coordsDisplay').innerHTML = `현재 좌표: X: ${스크롤x}, Y: ${스크롤y}`;
+            
+            // 마커 생성
+            let 스크롤마커 = document.createElement('div');
+            스크롤마커.className = 'scroll-marker';
+            스크롤마커.style.left = 스크롤x + (window.innerWidth / 2) + 'px';  /* 마커를 정중앙에 칠하기 위해서 '(window.innerWidth / 2)' 추가 입력*/
+            스크롤마커.style.top = 스크롤y + (window.innerWidth / 2) + 'px';
+            
+            let 스크롤마커생성 = document.body.appendChild(스크롤마커);
+        })
+
+        // 웹페이지 접속하면 로컬스토리지에 값 저장
+
+        function 방문자생성및초기화(){
+            // 3. 방문한 적 있는 사용자인지 확인
+
+            // 4. 처음 방문한 사용자이면, 방문자아이디 생성
+            
+            // 1.방문자정보 저장
+            
+            // 2.저장한 방문자정보 로컬스토리지에 저장
+
+        }
+
+        window.addEventListener('load', 방문자생성및초기화);
+
+</script>
 </body>
 </html>
