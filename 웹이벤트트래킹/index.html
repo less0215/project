@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="coordinates-display" id="coordsDisplay">
+            현재 좌표: X: 0, Y: 0
+        </div>
+        <div class="click-area" id="clickArea"></div>
+        <button class="reset-button" id="resetButton">초기화</button>
+    </div>
+
+    <script>
+        document.getElementById('clickArea').addEventListener('click', function(e){
+            // 눈에 보이는 화면 클릭위치정보 알아내는방법
+            let 클릭위치정보 = this.getBoundingClientRect(); 
+
+            // 클릭한 요소의 x,y 값 구하기
+                // X, Y 오타 조심하기
+                // '-2'는 에어리어의 보더px 값. 정확한 위치표기를 위해 보더만큼 빼준다.
+            let x = e.clientX - 클릭위치정보.left - 2;
+            let y = e.clientY - 클릭위치정보.top - 2;
+
+            console.log(x,y);
+
+            // 좌표를 현재 좌표에 바꿔서 표시하기
+            document.getElementById('coordsDisplay').innerHTML = `현재 좌표: X: ${x}, Y: ${y}`;
+
+            // 누른 곳에 색상 표시 되게 하기
+                // html 요소 생성
+                // 클래스 네임 부여
+                // '좌표 + px'로 스타일 부여
+                // 다 적용된 요소 클릭 영역에 추가
+
+            let 마커 = document.createElement('div');
+            마커.className = 'click-marker';
+            마커.style.left = x + 'px';   /* 포지션 앱솔루트에서는 (x,y)가 (left,top)*/
+            마커.style.top = y + 'px';
+
+            let 마커생성 = this.appendChild(마커);
+        })
+
+        // 스크롤 하면, 좌표 표시되게끔하기.
+
+        
+    </script>
+</body>
+</html>
